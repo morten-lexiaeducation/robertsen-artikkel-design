@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designforslag – Robertsen fagartikler | Personskade på sjøen</title>
+<meta name="description" content="Designforslag for hvordan Advokatfirma Robertsens fagartikler kan settes opp på nett – med bilder, overskrifter og kulepunkter i firmaets stil.">
+<meta property="og:title" content="Designforslag – slik kan Robertsens fagartikler settes opp">
+<meta property="og:description" content="Layoutforslag for miniartiklene: hero-bilde, ingress, «Kort oppsummert», spørsmålsoverskrifter, FAQ og kontaktboks.">
+<meta property="og:type" content="article">
+<style>
+  :root{
+    --bunn:#0F2A43; --aksent:#1E5B8C; --aksent2:#2E77B0;
+    --tekst:#26333F; --muted:#6A7580; --soft:#F5F7FA; --linje:#E2E8EF;
+    --maks:760px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--tekst);background:#fff;
+    font-family:Georgia,'Times New Roman',serif;line-height:1.7;font-size:18px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.sans,.kicker,.byline,.brand,.cta h3,.oppsum h4,nav,.faq summary,.credit,.notice{
+    font-family:Arial,Helvetica,'Segoe UI',sans-serif}
+  img{max-width:100%;display:block}
+  a{color:var(--aksent)}
+
+  /* Designforslag-stripe */
+  .notice{background:var(--bunn);color:#DCE6F0;font-size:13px;letter-spacing:.02em;
+    text-align:center;padding:9px 16px}
+  .notice b{color:#fff}
+
+  /* Toppbånd / merkevare */
+  .topbar{border-bottom:1px solid var(--linje);background:#fff}
+  .topbar .inner{max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:700;color:var(--bunn);font-size:19px;letter-spacing:.04em}
+  .brand span{color:var(--aksent)}
+  nav a{color:var(--bunn);text-decoration:none;font-size:14px;margin-left:22px;opacity:.85}
+  nav a:hover{opacity:1;color:var(--aksent)}
+  @media(max-width:640px){nav{display:none}}
+
+  /* Hero */
+  .hero{position:relative;height:min(66vh,520px);min-height:340px;overflow:hidden;background:#0b2036}
+  .hero img{width:100%;height:100%;object-fit:cover;opacity:.82}
+  .hero .overlay{position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(8,22,38,.15) 0%,rgba(8,22,38,.35) 45%,rgba(8,22,38,.82) 100%)}
+  .hero .htext{position:absolute;left:0;right:0;bottom:0;
+    max-width:1120px;margin:0 auto;padding:0 24px 42px}
+  .hero .kicker{color:#8FD0FF}
+  .hero h1{color:#fff;margin:.15em 0 0;font-size:clamp(28px,5vw,46px);line-height:1.12;
+    font-weight:800;max-width:15ch;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+  .kicker{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:700;color:var(--aksent)}
+
+  /* Artikkelkropp */
+  .wrap{max-width:var(--maks);margin:0 auto;padding:0 24px}
+  article{padding:40px 0 10px}
+  .byline{color:var(--muted);font-size:14px;padding-bottom:20px;margin-bottom:8px;border-bottom:1px solid var(--linje)}
+  .byline a{color:var(--aksent);text-decoration:none}
+  .ingress{font-size:22px;line-height:1.6;color:#1c2732;margin:26px 0 6px}
+  article h2{font-size:26px;color:var(--bunn);line-height:1.25;margin:38px 0 10px;font-weight:800}
+  article p{margin:0 0 20px}
+
+  /* Kort oppsummert */
+  .oppsum{background:var(--soft);border:1px solid var(--linje);border-left:5px solid var(--aksent);
+    border-radius:8px;padding:20px 24px 8px;margin:30px 0}
+  .oppsum h4{margin:0 0 12px;color:var(--bunn);font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .oppsum ul{list-style:none;margin:0;padding:0}
+  .oppsum li{position:relative;padding:0 0 12px 30px;font-size:16.5px;line-height:1.55}
+  .oppsum li::before{content:"";position:absolute;left:2px;top:8px;width:9px;height:9px;
+    border:2px solid var(--aksent);border-top:0;border-right:0;transform:rotate(-45deg)}
+
+  /* Pull-quote */
+  .pull{border-left:4px solid var(--aksent);margin:34px 0;padding:6px 0 6px 24px;
+    font-size:23px;line-height:1.45;color:var(--bunn);font-style:italic}
+
+  /* Figur */
+  figure{margin:32px 0}
+  figure img{border-radius:10px;width:100%;height:auto}
+  figcaption{font-size:13px;color:var(--muted);margin-top:8px;font-family:Arial,Helvetica,sans-serif}
+  figcaption a{color:var(--muted)}
+
+  /* FAQ */
+  .faq{margin:36px 0}
+  .faq h2{margin-bottom:6px}
+  .faq details{border-bottom:1px solid var(--linje)}
+  .faq summary{cursor:pointer;list-style:none;padding:16px 0;font-size:17.5px;font-weight:700;
+    color:var(--bunn);display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--aksent);font-size:24px;font-weight:400;line-height:1}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{padding:0 0 18px;margin:0;font-size:16.5px;color:#33414d}
+
+  /* CTA */
+  .cta{background:#0F2A43;color:#EAF1F8;border-radius:12px;padding:30px 30px;margin:40px 0 10px}
+  .cta h3{margin:0 0 8px;color:#fff;font-size:21px}
+  .cta p{margin:0 0 18px;font-size:16.5px;color:#C7D6E5}
+  .cta .btn{display:inline-block;background:#fff;color:var(--bunn);text-decoration:none;
+    font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:15px;padding:12px 22px;border-radius:7px}
+  .cta .contact{margin-top:14px;font-size:13.5px;color:#9FB6CC;font-family:Arial,Helvetica,sans-serif}
+
+  .disclaimer{font-size:13.5px;color:var(--muted);font-style:italic;margin:26px 0 0;
+    padding-top:18px;border-top:1px solid var(--linje)}
+
+  footer{background:var(--soft);margin-top:44px;border-top:1px solid var(--linje)}
+  footer .inner{max-width:var(--maks);margin:0 auto;padding:26px 24px 40px}
+  .credit{font-size:12.5px;color:var(--muted);line-height:1.8}
+  .credit b{color:var(--bunn)}
+</style>
+</head>
+<body>
+
+<div class="notice">🎨 <b>Designforslag</b> · Slik kan Robertsens fagartikler settes opp på nett – layout, bilder og struktur i firmaets stil. Innholdseksempel: «Personskade på sjøen».</div>
+
+<header class="topbar">
+  <div class="inner">
+    <div class="brand">ADVOKATFIRMA <span>ROBERTSEN</span></div>
+    <nav>
+      <a href="#">Fagområder</a>
+      <a href="#">Artikler</a>
+      <a href="#">Medarbeidere</a>
+      <a href="#">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1526588554903-b32eb4158064?w=1920&q=70&auto=format&fit=crop" alt="Vannscooter på sjøen">
+  <div class="overlay"></div>
+  <div class="htext">
+    <div class="kicker">Erstatning · Personskade</div>
+    <h1>Personskade på sjøen – når har du rett til erstatning?</h1>
+  </div>
+</section>
+
+<div class="wrap">
+  <article>
+    <div class="byline">Av advokat <a href="#">Anne Grethe Kjelland</a>, Advokatfirma Robertsen · Publisert 10. juli 2026</div>
+
+    <p class="ingress">Sommerhalvåret fører mange ut på vannet, i fritidsbåt, på vannscooter, på badebryggen eller under vannsport. Med aktiviteten følger også en risiko for alvorlige ulykker. Når skaden først har skjedd, melder ett spørsmål seg raskt: har du krav på erstatning? Svaret er sjelden gitt.</p>
+
+    <div class="oppsum">
+      <h4>Kort oppsummert</h4>
+      <ul>
+        <li>Ikke enhver ulykke på sjøen gir erstatning – noen må kunne holdes rettslig ansvarlig, eller skaden må være dekket av en forsikring.</li>
+        <li>På sjøen bygger ansvaret som hovedregel på uaktsomhet (skl. § 2-1), til forskjell fra det objektive bilansvaret (bal.).</li>
+        <li>Fritidsbåt og vannscooter har ingen lovpålagt ansvarsforsikring – dekningen avhenger av hvilke forsikringer som finnes.</li>
+        <li>Egne ulykkes-, reise- og innboforsikringer kan gi utbetaling uavhengig av skyld, og rettshjelpsdekning (fal. kap. 4) dekker mye av advokatutgiftene.</li>
+        <li>Meld skaden tidlig, sikre bevis og få saken vurdert av en spesialisert personskadeadvokat.</li>
+      </ul>
+    </div>
+
+    <h2>Hvilke ulykker på sjøen kan gi rett til erstatning?</h2>
+    <p>Skader på sjøen oppstår i mange former. Det kan dreie seg om kollisjon mellom fritidsbåter, påkjørsel fra vannscooter, fall om bord, skader under vannski eller wakeboard, ulykker som passasjer på turbåt eller ferje, eller stup mot grunt vann og skjulte hindringer. Felles for tilfellene er at erstatning forutsetter at noen kan holdes rettslig ansvarlig for det som skjedde. Selve skaden gir ikke i seg selv et krav, uansett hvor alvorlig den er.</p>
+
+    <div class="pull">«Selve skaden gir ikke i seg selv et krav – det avgjørende er om noen kan holdes rettslig ansvarlig.»</div>
+
+    <h2>Hvem er ansvarlig etter en ulykke på sjøen?</h2>
+    <p>På sjøen bygger ansvaret som hovedregel på uaktsomhet hos den som forårsaket skaden, altså det alminnelige culpaansvaret (skl. § 2-1). En båtfører som holder uforsvarlig fart, som ferdes for nær badende, eller som trekker en vannskiløper uten tilstrekkelig aktsomhet, vil normalt kunne holdes ansvarlig. Her skiller sjøen seg vesentlig fra biltrafikken. For motorvogn gjelder et objektivt ansvar med lovpålagt ansvarsforsikring (bal.), mens fritidsbåter og vannscootere ikke er omfattet av noen tilsvarende obligatorisk ordning. Ansvarsforholdet må derfor vurderes konkret, og dekningen avhenger av hvilke forsikringer den ansvarlige faktisk har.</p>
+
+    <figure>
+      <img src="https://images.unsplash.com/photo-1552083375-1447ce886485?w=1200&q=70&auto=format&fit=crop" alt="Fritidsbåter på et vann">
+      <figcaption>Fritidsbåt og vannscooter følger andre ansvarsregler enn biltrafikken. Foto: <a href="https://unsplash.com/@onefabian">Fabian Quintero</a> / Unsplash</figcaption>
+    </figure>
+
+    <h2>Hvilke forsikringer kan gi utbetaling?</h2>
+    <p>Flere forsikringer kan komme til anvendelse samtidig. Den ansvarliges båt- eller ansvarsforsikring er mest nærliggende, men også egen ulykkes-, reise- eller innboforsikring kan gi utbetaling uavhengig av skyldspørsmålet. Mange er ikke kjent med at slike forsikringer ofte har beløpsgrenser, og at utbetalingen derfra kan komme i tillegg til et erstatningskrav mot den ansvarlige. De fleste innbo- og båtforsikringer inneholder også en rettshjelpsdekning (fal. kap. 4), som dekker en vesentlig del av utgiftene til juridisk bistand. Er en annen part ansvarlig, dekker dennes forsikring normalt rimelige og nødvendige advokatutgifter. Økonomi bør derfor sjelden være til hinder for å søke hjelp.</p>
+
+    <h2>Når bør du kontakte advokat?</h2>
+    <p>Fordi ansvarsforholdet på sjøen ofte er uklart, og fordi forsikringsselskapet ivaretar egne interesser, bør du søke juridisk bistand tidlig. En spesialisert personskadeadvokat avklarer om det overhodet foreligger et ansvarsgrunnlag, identifiserer rett ansvarssubjekt og aktuelle forsikringer, og sikrer at samtlige tapsposter fanges opp. Advokaten passer også på at frister overholdes, og at en spesialisterklæring bygger på et korrekt faktisk grunnlag. Erfaring viser at skadelidte som står alene overfor et forsikringsselskap, jevnt over oppnår lavere erstatning enn de har krav på.</p>
+
+    <div class="cta">
+      <h3>Skadet på sjøen? Få en uforpliktende vurdering</h3>
+      <p>Advokatfirma Robertsen har spesialisert kompetanse innen personskadeerstatning. Er du eller en av dine nærmeste skadet, ser vi på saken din uten kostnad for deg.</p>
+      <a class="btn" href="#">Ta kontakt med oss</a>
+      <div class="contact">Advokat Anne Grethe Kjelland · oslo@robertsen.no · +47 22 12 24 80</div>
+    </div>
+
+    <div class="faq">
+      <h2>Ofte stilte spørsmål</h2>
+      <details open>
+        <summary>Har fritidsbåter lovpålagt ansvarsforsikring?</summary>
+        <p>Nei. I motsetning til motorvogn (bal.) finnes det ingen obligatorisk ansvarsforsikring for fritidsbåt eller vannscooter. Dekningen avhenger av hvilke forsikringer den ansvarlige og du selv har.</p>
+      </details>
+      <details>
+        <summary>Kan jeg få erstatning selv om ingen andre var skyld i ulykken?</summary>
+        <p>Mot en ansvarlig part kreves som hovedregel uaktsomhet. Egne ulykkes- eller reiseforsikringer kan likevel gi utbetaling uavhengig av skyld, og ved yrkesskade på sjøen gjelder et objektivt vern.</p>
+      </details>
+      <details>
+        <summary>Hvor lang tid har jeg på å fremme kravet?</summary>
+        <p>Erstatningskrav foreldes normalt etter tre år, regnet fra det tidspunktet du hadde eller burde hatt nødvendig kunnskap om skaden og den ansvarlige.</p>
+      </details>
+      <details>
+        <summary>Hva koster det å bruke advokat?</summary>
+        <p>Ved ansvar dekker motpartens forsikring normalt rimelige og nødvendige advokatutgifter, og rettshjelpsdekningen i egne forsikringer (fal. kap. 4) dekker en stor del av utgiftene i mange saker.</p>
+      </details>
+    </div>
+
+    <p class="disclaimer">Artikkelen gir generell informasjon og erstatter ikke individuell juridisk rådgivning i den enkelte sak.</p>
+  </article>
+</div>
+
+<footer>
+  <div class="inner">
+    <p class="credit"><b>Designforslag utarbeidet for Advokatfirma Robertsen.</b> Denne siden viser hvordan miniartiklene kan settes opp på nett – med hero-bilde, ingress, «Kort oppsummert», spørsmålsbaserte overskrifter, kulepunkter, sitat, FAQ og kontaktboks. Farger, typografi og struktur følger firmaets uttrykk og kan justeres fritt.</p>
+    <p class="credit">Bilder: <a href="https://unsplash.com/@noodlenelson">Brandon Nelson</a> og <a href="https://unsplash.com/@onefabian">Fabian Quintero</a> via Unsplash (fri bruk). Endelige bilder velges ved publisering.</p>
+  </div>
+</footer>
+
+</body>
+</html>
